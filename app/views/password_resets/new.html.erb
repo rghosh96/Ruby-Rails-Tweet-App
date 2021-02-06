@@ -1,0 +1,17 @@
+<div class="d-flex flex-column align-items-center justify-content-center">
+    <h1>Forgot Your Password?</h1>
+
+    <%# can use table from db to make a form! %>
+    <%# looks for a url helpe post request %>
+    <%# NEED TO HAVE local: true to redirect locally!!! %>
+    <%= form_with url: password_reset_path, local: true do |form| %>
+
+        <div class="mb-3"> 
+            <%= form.label :email %>
+            <%= form.text_field :email, class:"form-control", placeholder: "rashi.ghosh@cerner.com" %>
+        </div>
+        <div class="mb-3">
+            <%= form.submit "Send Email!", class:"btn" %>
+        </div>
+    <% end %>
+</div>

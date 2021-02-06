@@ -1,0 +1,32 @@
+<div class="d-flex flex-column align-items-center justify-content-center">
+    <h1>Sign Up!</h1>
+
+    <%# can use table from db to make a form! %>
+    <%# looks for a url helpe post request %>
+    <%# NEED TO HAVE local: true to redirect locally!!! %>
+    <%= form_with model: @user, url: sign_up_path, local: true do |form| %>
+        <% if form.object.errors.any? %>
+            <div class="alert alert-warning mt-4">
+                <% form.object.errors.full_messages.each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
+        <% end %>
+
+        <div class="mb-3"> 
+            <%= form.label :email %>
+            <%= form.text_field :email, class:"form-control", placeholder: "rashi.ghosh@cerner.com" %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :password %>
+            <%= form.password_field :password, class:"form-control", placeholder: "your password" %>
+        </div>
+        <div class="mb-3">
+            <%= form.label :password_confirmation %>
+            <%= form.password_field :password_confirmation, class:"form-control", placeholder: "confirm password" %>
+        </div>
+        <div class="mb-3">
+            <%= form.submit "Get Started!", class:"btn" %>
+        </div>
+    <% end %>
+</div>

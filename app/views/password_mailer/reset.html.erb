@@ -1,0 +1,7 @@
+<%# need to include _url on paths since clicking from an email (for full url) %>
+Hello, <%= params[:user].email %>!
+<br/>
+
+A password reset was requested for your account.
+If this was you, please click the following link to reset your password! This link will expire automatically in 15 minutes.
+<%= link_to "Reset Password", password_reset_edit_url(token: @token) %>
